@@ -1,0 +1,23 @@
+body {
+  background-color: orange;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  color: black;
+}
+
+#escritorioAdministrador table {
+  margin: auto;
+  margin-top: 50px;
+  width: 50%;
+  border: 1px solid black;
+}
+
+#escritorioAdministrador table tr:hover {
+  background-color: #fed598;
+}
+
+#escritorioUsuario {
+  background-color: green;
+}
