@@ -13,7 +13,9 @@
   </head>
   <body>
     <div id="escritorioAdministrador">
-      <h3>Todos los usuarios</h3>
+      <h3>Escritorio de administrador</h3>
+      <h5>Estas conectado como <?= $_SESSION['usuario'] ?></h5>
+      <h6><a href="../Controller/cerrarSesion.php">Cerrar Sesion</a></h6>
       <table class="table table-hover">
         <thead>
           <tr>
@@ -59,16 +61,21 @@
           <td>
             <?php 
             if ($usuario->getAdministrador()) {
-              echo '<input type="checkbox" name="permisoAdmin" value="true" checked>';
+              echo '<input type="checkbox" name="permisoAdmin" value="true" disabled="disabled" checked="checked">';
               
             } else {
-              echo '<input type="checkbox" name="permisoAdmin" value="false">';
+              echo '<input type="checkbox" name="permisoAdmin" value="false" disabled="disabled">';
               
             }
             ?>
           </td>
           <td></td>
-          <td></td>
+          <td>
+            <form action="../Controller/borrarAccion.php" method="post" >
+              <input type="hidden" name="idUsuario" value="<?= $usuario->getIdUsuario() ?>">
+              <input type="submit" value="Borrar">
+            </form>
+          </td>
         </tr>
       <?php
         }

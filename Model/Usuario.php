@@ -39,14 +39,13 @@ class Usuario {
     $conexion->exec($insert);
   }
   
-  public function delete() {
+  public static function deleteById($idUsuario) {
     $conexion = ConexionDB::conectar();
-    $delete = 'DELETE FROM usuario WHERE idUsuario="' . $this->idUsuario . '"';
+    $delete = 'DELETE FROM usuario WHERE idUsuario="' . $idUsuario . '"';
 
     $conexion->exec($delete);
   }
   
-  // FALTA -> EL UPDATE Y OTRAS CONSULTAS
   public static function getTodosUsuarios() {
     $conexion = ConexionDB::conectar();
     $sentencia = 'SELECT * FROM usuario';
@@ -62,7 +61,7 @@ class Usuario {
     return $usuarios;
   }
   
-  public static function getUsuarioByNombre ($nombre) {
+  public static function getUsuarioByNombre($nombre) {
     $conexion = ConexionDB::conectar();
     $sentencia = 'SELECT * FROM usuario WHERE nombre="' . $nombre . '"';
     $consulta = $conexion->query($sentencia);
