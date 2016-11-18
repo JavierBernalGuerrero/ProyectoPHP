@@ -4,7 +4,7 @@ session_start();
 require_once '../Model/Usuario.php';
 
 if (isset($_SESSION['usuario'])) {
-  // SEGUIR
+  
   $idIntroducido = $_POST['idUsuario'];
   Usuario::deleteById($idIntroducido);
   

@@ -12,6 +12,15 @@ class Usuario {
     $this->idUsuario = $idUsuario;
     $this->nombre = $nombre;
     $this->clave = $clave;
+    
+    if ($administrador) {
+      $administrador = 1;
+
+    } else {
+      $administrador = 0;
+
+    }
+    
     $this->administrador = $administrador;
   }
   
@@ -39,6 +48,32 @@ class Usuario {
     $conexion->exec($insert);
   }
   
+  public function update($idUsuario, $nombre, $clave, $administrador) {
+    $conexion = ConexionDB::conectar();
+    $update = 'UPDATE usuario SET ';
+    
+    if ($this->idUsuario != $idUsuario) {
+      $update .= 'idUsuario=' . $idUsuario;
+    }
+    
+    if ($this->nombre != $nombre) {
+      $update .= 'nombre=' . $nombre;
+    }
+    
+    if ($this->clave != $clave) {
+      $update .= 'clave=' . $clave;
+    }
+    
+    if ($this->administrador != $administrador) {
+      $update .= 'administrador=' . $administrador;
+    }
+    
+    $update .= 'WHERE `usuario`.`idUsuario` = ' . $this->idUsuario;
+
+    echo $update;
+    //$conexion->exec($update);
+  }
+  
   public static function deleteById($idUsuario) {
     $conexion = ConexionDB::conectar();
     $delete = 'DELETE FROM usuario WHERE idUsuario="' . $idUsuario . '"';
@@ -64,6 +99,16 @@ class Usuario {
   public static function getUsuarioByNombre($nombre) {
     $conexion = ConexionDB::conectar();
     $sentencia = 'SELECT * FROM usuario WHERE nombre="' . $nombre . '"';
+    $consulta = $conexion->query($sentencia);
+    $usuario = $consulta->fetchObject();
+    $usuarioResultado = new Usuario($usuario->idUsuario, $usuario->nombre, $usuario->clave, $usuario->administrador);
+        
+    return $usuarioResultado;
+  }
+  
+  public static function getUsuarioById($idUsuario) {
+    $conexion = ConexionDB::conectar();
+    $sentencia = 'SELECT * FROM usuario WHERE idUsuario="' . $idUsuario . '"';
     $consulta = $conexion->query($sentencia);
     $usuario = $consulta->fetchObject();
     $usuarioResultado = new Usuario($usuario->idUsuario, $usuario->nombre, $usuario->clave, $usuario->administrador);

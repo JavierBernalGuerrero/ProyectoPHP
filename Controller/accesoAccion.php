@@ -11,7 +11,7 @@ if (isset($_POST['nombre'])) {
   // tanto en la base de datos como el campo vacio del formulario son "==", es decir, vacios.
   // Por eso utilizamos "===", porque aunque ambos son vacios, no son el mismo tipo.
   if ($usuario->getNombre() === $_POST['nombre'] && $usuario->getClave() === $_POST['clave']) {
-    $_SESSION['usuario'] = $usuario->getNombre();
+    $_SESSION['usuario'] = serialize($usuario);
     include '../Controller/gestorContenido.php';
 
   } else {
