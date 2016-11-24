@@ -4,16 +4,16 @@ Pulsa [aqui](http://virtualboard.esy.es/View/accesoFormulario.php) para acceder 
 
 A continuacion dejo unas capturas de la interfaz:
 *Pantalla de login*
-[[Capturas/01-Login.PNG|alt=login]]
+(https://github.com/JavierBernalGuerrero/ProyectoPHP/blob/master/Capturas/01-Login.PNG)
 
 *Escritorio Administrador*
-[[Capturas/02-EscritorioAdministrador.PNG|alt=escritorioAdministrado]]
+(https://github.com/JavierBernalGuerrero/ProyectoPHP/blob/master/Capturas/02-EscritorioAdministrador.PNG)
 
 *Pantalla principal del usuario*
-[[Capturas/03-EscritorioUsuarioHome.PNG|alt=escritorioUsuarioHome]]
+(https://github.com/JavierBernalGuerrero/ProyectoPHP/blob/master/Capturas/03-EscritorioUsuarioHome.PNG)
 
 *Configuraciones del usuario*
-[[Capturas/04-EscritorioUsuarioEditar.PNG|alt=escritorioUsuarioEditar]]
+(https://github.com/JavierBernalGuerrero/ProyectoPHP/blob/master/Capturas/04-EscritorioUsuarioEditar.PNG)
 
 *Galeria del usuario*
-[[Capturas05-EscritorioUsuarioGaleria.PNG|alt=escritorioUsuarioGaleria]]
+(https://github.com/JavierBernalGuerrero/ProyectoPHP/blob/master/Capturas/05-EscritorioUsuarioGaleria.PNG)
