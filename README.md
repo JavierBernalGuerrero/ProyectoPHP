@@ -4,16 +4,16 @@ Pulsa [aqui](http://virtualboard.esy.es/View/accesoFormulario.php) para acceder 
 
 A continuacion dejo unas capturas de la interfaz:
 *Pantalla de login*
-(https://github.com/JavierBernalGuerrero/ProyectoPHP/blob/master/Capturas/01-Login.PNG)
+![Pantalla de login](https://github.com/JavierBernalGuerrero/ProyectoPHP/blob/master/Capturas/01-Login.PNG)
 
 *Escritorio Administrador*
-(https://github.com/JavierBernalGuerrero/ProyectoPHP/blob/master/Capturas/02-EscritorioAdministrador.PNG)
+![Escritorio Administrador](https://github.com/JavierBernalGuerrero/ProyectoPHP/blob/master/Capturas/02-EscritorioAdministrador.PNG)
 
 *Pantalla principal del usuario*
-(https://github.com/JavierBernalGuerrero/ProyectoPHP/blob/master/Capturas/03-EscritorioUsuarioHome.PNG)
+![Pantalla principal del usuario](https://github.com/JavierBernalGuerrero/ProyectoPHP/blob/master/Capturas/03-EscritorioUsuarioHome.PNG)
 
 *Configuraciones del usuario*
-(https://github.com/JavierBernalGuerrero/ProyectoPHP/blob/master/Capturas/04-EscritorioUsuarioEditar.PNG)
+![Configuraciones del usuario](https://github.com/JavierBernalGuerrero/ProyectoPHP/blob/master/Capturas/04-EscritorioUsuarioEditar.PNG)
 
 *Galeria del usuario*
-(https://github.com/JavierBernalGuerrero/ProyectoPHP/blob/master/Capturas/05-EscritorioUsuarioGaleria.PNG)
+![Galeria del usuario](https://github.com/JavierBernalGuerrero/ProyectoPHP/blob/master/Capturas/05-EscritorioUsuarioGaleria.PNG)
