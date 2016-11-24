@@ -3,6 +3,7 @@
 Pulsa [aqui](http://virtualboard.esy.es/View/accesoFormulario.php) para acceder al sitio web. Se trata de un escritorio online para los usuarios registrados, donde cada usuario tiene su espacio personal al que puede acceder desde cualquier sitio.
 
 A continuacion dejo unas capturas de la interfaz:
+
 *Pantalla de login*
 ![Pantalla de login](https://github.com/JavierBernalGuerrero/ProyectoPHP/blob/master/Capturas/01-Login.PNG)
 
