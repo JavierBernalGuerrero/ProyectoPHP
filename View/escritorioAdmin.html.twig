@@ -1,85 +1,141 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="UTF-8">
-    <title>Listado Usuarios</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escritorio de {{usuarioLogueado.nombre}}</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link type="text/css" rel="stylesheet" href="../View/css/estilo.css"/>
-    
+    <link type="text/css" rel="stylesheet" href="../View/css/estilo.css" />
+
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="../View/js/jquery.js"></script>
     <!-- Bootstrap Script -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  </head>
-  <body>
-    <div id="escritorioAdministrador">
-      <h3>Escritorio de administrador</h3>
-      <h5>Estas conectado como {{usuarioLogueado.nombre}}</h5>
-      <h6><a href="../Controller/cerrarSesion.php">Cerrar Sesion</a></h6>
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Contraseña</th>
-            <th>Administrador</th>
-            <th>Modificar</th>
-            <th>Eliminar</th>
-          </tr>
-        </thead>
-        <tfoot>
-          <tr>
-            <form action="../Controller/insertarAccion.php" method="post">
-              <td>
-                <input type="text" name="idUsuario" placeholder="ID..." required="required" autofocus="autofocus">
-              </td>
-              <td>
-                <input type="text" name="nombre" placeholder="Nombre..." required="required">
-              </td>
-              <td>
-                <input type="text" name="clave" placeholder="Contraseña..." required="required">
-              </td>
-              <td>
-                <input type="checkbox" name="permisoAdmin" value="true">
-              </td>
-              <td colspan="2">
-                <button class="btn waves-effect waves-light" type="submit">
-                  <i class="material-icons">add</i>
-                </button>
-              </td>
-            </form>
-          </tr>
-        </tfoot>
-        <tbody>
-          {% for usuario in usuarios %}
-          <tr>
-            <td>{{usuario.idUsuario}}</td>
-            <td>{{usuario.nombre}}</td>
-            <td>{{usuario.clave}}</td>
-            <td>
-              {% if usuario.administrador == true %}
-              <input type="checkbox" name="permisoAdmin" value="true" disabled="disabled" checked="checked">
-              {% else %}
-              <input type="checkbox" name="permisoAdmin" value="true" disabled="disabled">
-              {% endif %}
-            </td>
-            <td>
-              <form action="../Controller/gestorContenido.php" method="post" >
-                <input type="hidden" name="idUsuario" value="{{usuario.idUsuario}}">
-                <input type="hidden" name="accion" value="editar">
-                <input type="submit" value="Actualizar">
-              </form>
-            </td>
-            <td>
-              <form action="../Controller/borrarAccion.php" method="post" >
-                <input type="hidden" name="idUsuario" value="{{usuario.idUsuario}}">
-                <input type="submit" value="Borrar">
-              </form>
-            </td>
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <header>
+        <div id="header">
+          <div id="logo" class="col-xs-12 col-sm-10 col-md-3 img-responsive"></div>
+          <h2 id="titulo" class="col-xs-12 col-sm-10 col-md-9">Este es el titulo de la aplicacion</h2>
+        </div>
+      </header>
     </div>
-  </body>
+    <div class="row">
+      <nav>
+        <div id="nav">
+          <ul class="col-xs-12 col-sm-10 col-md-8">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Editar</a></li>
+            <li><a href="#">Consultas</a></li>
+            <li><a href="#">Base de datos</a></li>
+          </ul>
+          <div class="dropdown col-xs-12 col-sm-10 col-md-4">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              Estas conectado como {{usuarioLogueado.nombre}}
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+              <li><a href="#">Editar Cuentas</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="../Controller/cerrarSesion.php"><span class="glyphicon glyphicon-log-out"> Cerrar Sesion</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <main>
+        <div id="escritorioAdministrador">
+          <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Administrador</th>
+                        <th>Identificador</th>
+                        <th>Nombre</th>
+                        <th>Contraseña</th>
+                        <th colspan="2"></th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <form action="../Controller/administradorInsertarAccion.php" method="post">
+                            <td>
+                                <input type="checkbox" name="permisoAdmin" value="true">
+                            </td>
+                            <td>
+                                <input type="text" name="idUsuario" placeholder="ID..." required="required" autofocus="autofocus">
+                            </td>
+                            <td>
+                                <input type="text" name="nombre" placeholder="Nombre..." required="required">
+                            </td>
+                            <td>
+                                <input type="text" name="clave" placeholder="Contraseña..." required="required">
+                            </td>
+                            <td colspan="2">
+                                <button type="submit" class="btn btn-success">
+                                  <span class="glyphicon glyphicon-floppy-disk"></span>
+                                </button>
+                            </td>
+                        </form>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    {% for usuario in usuarios %}
+                    <tr>
+                        <td>
+                            {% if usuario.administrador == true %}
+                              <input type="checkbox" name="permisoAdmin" value="true" disabled="disabled" checked="checked"> 
+                            {% else %}
+                              <input type="checkbox" name="permisoAdmin" value="true" disabled="disabled"> 
+                            {% endif %}
+                        </td>
+                        <td>{{usuario.idUsuario}}</td>
+                        <td>{{usuario.nombre}}</td>
+                        <td>{{usuario.clave}}</td>
+                        <td>
+                            <button id="botonFormularioActualizar{{ loop.index }}" class="btn btn-warning">
+                              <span class="glyphicon glyphicon-pencil"></span>
+                            </button>
+                        </td>
+                        <td>
+                            <form action="../Controller/administradorBorrarAccion.php" method="post">
+                                <input type="hidden" name="idUsuario" value="{{usuario.idUsuario}}">
+                                <button type="submit" class="btn btn-danger">
+                                  <span class="glyphicon glyphicon-trash"></span>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    <div id="formularioActualizar{{ loop.index }}">
+                      <div id="datosFormularioActualizar">
+                        <form action="../Controller/administradorActualizarAccion.php" method="post">
+                            Id: <input id="idUsuario" type="text" name="idUsuario" value="{{usuario.idUsuario}}">
+                            <input id="idUsuario" type="hidden" name="idUsuarioAntiguo" value="{{usuario.idUsuario}}"> Nombre:
+                            <input id="nombre" type="text" name="nombre" value="{{usuario.nombre}}"> Contraseña:
+                            <input id="clave" type="text" name="clave" value="{{usuario.clave}}"> Permiso Administrador: {% if usuario.administrador == true %}
+                            <input type="checkbox" name="permisoAdmin" value="true" checked="checked"> {% else %}
+                            <input type="checkbox" name="permisoAdmin" value="true"> {% endif %}
+                            <button type="submit" class="btn btn-success">
+                              <span class="glyphicon glyphicon-ok"></span>
+                            </button>
+                        </form>
+                        <button class="botonFormularioActualizarCerrar btn btn-danger">
+                          <span class="glyphicon glyphicon-remove"></span>
+                        </button>
+                      </div>
+                    </div>
+                    {% endfor %}
+                </tbody>
+            </table>
+          </div>
+        </div>
+    </main>
+  </div>
+</body>
+
 </html>

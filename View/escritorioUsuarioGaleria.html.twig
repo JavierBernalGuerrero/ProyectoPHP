@@ -1,0 +1,33 @@
+{% extends 'escritorioUsuario.html.twig' %}
+	{% block escritorioUsuarioGaleria %}
+	<button id="activarProtectorPantalla">Bloquear</button>
+	<div id="protectorPantalla">
+		<button id="desactivarProtectorPantalla">Desbloquear</button>
+		<div class="cuboContenedor">
+			<div class="cara01" style="background-image: url(../View/images/{{ escritorio.imagen01 }});"></div>
+			<div class="cara02" style="background-image: url(../View/images/{{ escritorio.imagen02 }});"></div>
+			<div class="cara03" style="background-image: url(../View/images/{{ escritorio.imagen03 }});"></div>
+			<div class="cara04" style="background-image: url(../View/images/{{ escritorio.imagen04 }});"></div>
+			<div class="cara05" style="background-image: url(../View/images/{{ escritorio.imagen05 }});"></div>
+			<div class="cara06" style="background-image: url(../View/images/{{ escritorio.imagen06 }});"></div>
+		</div>
+	</div>
+
+	<div class="slider-holder">
+			<span id="slider-image-1"></span>
+			<span id="slider-image-2"></span>
+			<span id="slider-image-3"></span>
+			<div class="image-holder">
+				<img src="../View/images/imagen01.jpg" class="slider-image" />
+				<img src="../View/images/imagen02.jpg" class="slider-image" />
+				<img src="../View/images/imagen03.jpg" class="slider-image" />
+			</div>
+			<div class="button-holder">
+				<a href="#slider-image-1" class="slider-change"></a>
+				<a href="#slider-image-2" class="slider-change"></a>
+				<a href="#slider-image-3" class="slider-change"></a>
+			</div>
+	</div>
+
+	
+	{% endblock %}

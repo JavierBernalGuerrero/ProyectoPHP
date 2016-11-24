@@ -11,18 +11,26 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </head>
   <body>
+    <h2 style="text-align: center; margin-top: 200px;">Login </h2>
     <div id="accesoFormulario">
-      <h2>Esto es el login</h2>
-      <?php 
-      if ($codigoError == "accesoDenegado") {
-        echo '<h4>Error durante la autentificacion, el nombre o el usuario no es correcto.</h4>';
-      }
+    <?php 
+    if ($codigoError == "accesoDenegado") {
+      echo '<h4>Error durante la autentificacion, el nombre o el usuario no es correcto.</h4>';
+    }
 
-      ?>
+    ?>
       <form action="../Controller/accesoAccion.php" method="post">
-        <input type="text" name="nombre" placeholder="Usuario.." autofocus="autofocus" required="required">
-        <input type="password" name="clave" placeholder="Contraseña.." required="required">
-        <input type="submit" value="Entrar">
+        <ul>
+          <li class="flex-item">
+            <i class="icon-user"></i><input type="text" name="nombre" placeholder="Usuario.." autofocus="autofocus" required="required">
+          </li>
+          <li class="flex-item">
+            <i class="icon-pass"></i><input type="password" name="clave" placeholder="Contraseña.." required="required">
+          </li>
+          <li class="flex-item">
+            <input type="submit" value="Entrar">
+          </li>
+        </ul>
       </form>
     </div>
   </body>

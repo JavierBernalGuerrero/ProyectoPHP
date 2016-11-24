@@ -1,0 +1,39 @@
+{% extends 'escritorioUsuario.html.twig' %} {% block escritoriousuarioEditarFormulario %}
+<div id="escritoriousuarioEditarFormulario">
+    <form id="editarEscritorioAccion" action="usuarioActualizarAccion.php" enctype="multipart/form-data" method="POST">
+        <div class="filaTabla">
+            <span class="celdaCampo">Nombre:</span>
+            <input type="text" name="nombre" value="{{ usuarioLogueado.nombre }}">
+        </div>
+        <div class="filaTabla">
+            <span class="celdaCampo">Clave:</span>
+            <input type="text" name="clave" value="{{ usuarioLogueado.clave }}">
+        </div>
+        <div class="filaTabla">
+            <span class="celdaCampo">Titulo:</span>
+            <input type="text" name="titulo" value="{{ escritorio.titulo }}">
+        </div>
+        <div class="filaTabla">
+            <span class="celdaCampo">Imagenes:</span>
+            <select name="idImagen" form="editarEscritorioAccion">
+                <option value="imagen01">imagen01</option>
+                <option value="imagen02">imagen02</option>
+                <option value="imagen03">imagen03</option>
+                <option value="imagen04">imagen04</option>
+                <option value="imagen05">imagen05</option>
+                <option value="imagen06">imagen06</option>
+            </select>
+            <input type="file" id="imagen" name="imagen">
+        </div>
+    </form>
+    <div class="filaTabla">
+        <span class="celdaCampo descripcion">Descripcion:</span>
+        <textarea rows="9" cols="50" name="descripcion" form="editarEscritorioAccion">
+            {{ escritorio.descripcion }}
+        </textarea>
+    </div>
+    <div class="filaTabla">
+        <input type="submit" value="Guardar" form="editarEscritorioAccion">
+    </div>
+</div>
+{% endblock %}

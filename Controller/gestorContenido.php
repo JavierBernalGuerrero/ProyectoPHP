@@ -2,6 +2,7 @@
 session_start();
 
 require_once '../Model/Usuario.php';
+require_once '../Model/Escritorio.php';
 require_once 'Twig/lib/Twig/Autoloader.php';
 
 if (isset($_SESSION['usuario'])) {
@@ -16,12 +17,22 @@ if (isset($_SESSION['usuario'])) {
   
   if ($usuario->getAdministrador()) {
     $data['usuarios'] = Usuario::getTodosUsuarios();
+    
     echo $twig->render('escritorioAdmin.html.twig', $data);
-//    include '../View/escritorioAdmin.php';
   
   } else {
-    echo $twig->render('escritorioUsuario.html.twig', $data);
-//    include '../View/escritorioUsuario.php';
+    $data['escritorio'] = Escritorio::getEscritorioByIdUsuario($data['usuarioLogueado']->getIdUsuario());
+    
+    if ($_GET['accion'] == "home") {
+      echo $twig->render('homeEscritorio.html.twig', $data);
+      
+    } else if ($_GET['accion'] == "editar") {
+      echo $twig->render('escritorioUsuarioEditarFormulario.html.twig', $data);
+      
+    } else if ($_GET['accion'] == "galeria") {
+      echo $twig->render('escritorioUsuarioGaleria.html.twig', $data);
+      
+    }
 
   }
   

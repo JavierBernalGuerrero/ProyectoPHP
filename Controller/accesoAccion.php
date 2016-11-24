@@ -12,7 +12,7 @@ if (isset($_POST['nombre'])) {
   // Por eso utilizamos "===", porque aunque ambos son vacios, no son el mismo tipo.
   if ($usuario->getNombre() === $_POST['nombre'] && $usuario->getClave() === $_POST['clave']) {
     $_SESSION['usuario'] = serialize($usuario);
-    include '../Controller/gestorContenido.php';
+    header("Location: ../Controller/gestorContenido.php?accion=home");
 
   } else {
     $codigoError = "accesoDenegado";

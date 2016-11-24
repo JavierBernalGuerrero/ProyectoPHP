@@ -1,20 +1,48 @@
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Proyecto PHP</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <title>Escritorio de {{usuarioLogueado.nombre}}</title>
     <link type="text/css" rel="stylesheet" href="../View/css/estilo.css"/>
     
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <!-- Bootstrap Script -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  </head>
+    <script src="../View/js/jquery.js"></script>
+
+    <!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.js"></script>
+    <![endif]-->
+
+    </head>
   <body>
-    <h3>Escritorio de <?= $usuario->getNombre() ?></h3>
-      <h6><a href="../Controller/cerrarSesion.php">Cerrar Sesion</a></h6>
     <div id="escritorioUsuario">
-      
+      <header>
+        <div id="header">
+          <div id="logo"></div>
+          <h2 id="titulo">Este es el titulo de la aplicacion</h2>
+        </div>
+      </header>
+      <nav>
+          <div id="nav">
+            <ul>
+              <li>Estas conectado como {{usuarioLogueado.nombre}}</li>
+              <li><a href="../Controller/gestorContenido.php?accion=home"><i class="icon-home"></i>Home</a></li>
+              <li><a href="../Controller/gestorContenido.php?accion=editar"><i class="icon-edit"></i>Editar</a></li>
+              <li><a href="../Controller/gestorContenido.php?accion=galeria"><i class="icon-galery"></i>Galeria</a></li>
+              <li><a href="../Controller/cerrarSesion.php"><i class="icon-logout"></i>Cerrar Sesion</a></li>
+            </ul>
+        </nav>
+      <main>
+        <div id="main">
+          {% block homeEscritorio %}{% endblock %}
+          {% block escritoriousuarioEditarFormulario %}{% endblock %}
+          {% block escritorioUsuarioGaleria %}{% endblock %}
+        </div>
+      </main>
+      <footer>
+        <div id="footer">
+          <h4>Javier Bernal Guerrero</h4>
+        </div>
+      </footer>
     </div>
   </body>
 </html>

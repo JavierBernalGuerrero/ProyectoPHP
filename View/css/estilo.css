@@ -1,9 +1,15 @@
+@font-face {
+  font-family: OpeningNight;
+  font-style: normal;
+  src: url(OpeningNight.otf);
+}
+
 body {
   background-color: #184279;
   width: 100%;
-  height: 100%;
   padding: 0;
   margin: 0;
+  font-family: OpeningNight;
   color: white;
 }
 
@@ -15,7 +21,170 @@ input {
   color: black;
 }
 
+#escritorioAdministrador input, button span, button {
+  width: 100%;
+  color: black;
+}
+
+.icon-user {
+  display: inline-block;
+  background-image: url(../images/iconos.png);
+  background-position: -120px -200px;
+  width: 40px;
+  height: 40px;
+  vertical-align: bottom;
+}
+
+/* Iconos */
+.icon-pass {
+  display: inline-block;
+  line-height: 32px;
+  background-image: url(../images/iconos.png);
+  background-position: -480px -80px;
+  width: 40px;
+  height: 40px;
+  vertical-align: bottom;
+}
+
+.icon-home {
+  display: inline-block;
+  line-height: 32px;
+  background-image: url(../images/iconos.png);
+  background-position: -320px 0px;
+  width: 40px;
+  height: 40px;
+  vertical-align: bottom;
+  
+}
+
+.icon-edit {
+  display: inline-block;
+  line-height: 32px;
+  background-image: url(../images/iconos.png);
+  background-position: -680px -360px;
+  width: 40px;
+  height: 40px;
+  vertical-align: bottom;
+  
+}
+
+.icon-galery {
+  display: inline-block;
+  line-height: 32px;
+  background-image: url(../images/iconos.png);
+  background-position: 0 -275px;
+  width: 40px;
+  height: 40px;
+  vertical-align: bottom;
+  
+}
+
+.icon-logout {
+  display: inline-block;
+  line-height: 32px;
+  background-image: url(../images/iconos.png);
+  background-position: -200px -200px;
+  width: 40px;
+  height: 40px;
+  vertical-align: bottom;
+  
+}
+
+/* ESCRITORIO DEL USUARIO ADMINISTRADOR */
+#header {
+  padding: 20px;
+  background-color: #18365c;
+  overflow: hidden;
+}
+
+#logo {
+  background-image: url(../images/logo.png);
+  background-size: 235px;
+  background-position: -25px -50px;
+  width: 200px;
+  height: 110px;
+}
+
+#header #titulo {
+  font-size: 40px;
+  text-align: center;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5), -1px -1px 0 rgba(255, 255, 255, 0.5);
+}
+
+#nav {
+  width: 100%;
+  height: 35px;
+  background-color: #17294e;
+}
+
+#nav {
+  float: left;
+  height: 100%;
+}
+
+#nav ul li {
+  height: 100%;
+  
+  list-style: none;
+  display: inline;
+}
+
+#nav button {
+  width: 100%;
+}
+
+#footer {
+  width: 100%;
+  height: 150px;
+  text-align: center;
+  background-color: #1f3069;
+  display: -webkit-flex;  /* Chrome */
+  display: -ms-flexbox;   /* Internet Explore */
+  display: -moz-flexbox;  /* Firefox */
+  display: inline-flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+#footer h4 {
+  margin: auto;
+}
+
+#accesoFormulario {
+  display: -webkit-flex;  /* Chrome */
+  display: -ms-flexbox;   /* Internet Explore */
+  display: -moz-flexbox;  /* Firefox */
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  height: 200px;
+}
+
+#accesoFormulario {
+  text-align: right;
+}
+
+#accesoFormulario h4 {
+  text-align: center;
+}
+
+#accesoFormulario ul {
+  padding: 0;
+}
+
+.flex-item {
+  width: 200px;
+  list-style: none;
+  align-self: flex-start;
+}
+
+#accesoFormulario input {
+  width: 150px;
+  margin: 5px;
+}
+
 #escritorioAdministrador table {
+  position: relative;
   margin: auto;
   margin-top: 50px;
   width: 50%;
@@ -31,10 +200,258 @@ input {
   cursor: default;
 }
 
-#escritorioAdministrador input {
-  width: 110px;
+/* DESPLEGABLE DEL MENU ACTUALIZAR */
+div[id^=formularioActualizar] {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 4;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
+#datosFormularioActualizar {
+  position: relative;
+  top: 30%;
+  z-index: 5;
+  border: 1px solid black;
+  padding: 20px;
+  background-color: rgba(28, 66, 147, 1);
+  width: 250px;
+  margin: auto;
+}
+
+div[id^=formularioActualizar] input {
+  display: block;
+  margin: auto;
+  margin-top: 5px;
+}
+
+/* ESCRITORIO DEL USUARIO */
 #escritorioUsuario {
+  width: 100%;
+  height: 100%;
+}
+
+#escritorioUsuario #nav, #escritorioUsuario #header {
+  display: -webkit-flex;  /* Chrome */
+  display: -ms-flexbox;   /* Internet Explore */
+  display: -moz-flexbox;  /* Firefox */
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  float: none;
+  padding: 10px;
+  width: 80%;
+  margin: auto;
+}
+
+#escritorioUsuario #nav li {
+  margin: 3px;
+}
+
+#escritorioUsuario #nav {
+  flex-grow: 2;
+  justify-content: flex-start;
+}
+
+#escritorioUsuario #nav a {
+  text-decoration: none;
+}
+
+#main {
+  margin: 80px auto;
+  width: 80%;
+}
+
+#escritorioUsuarioDescripcion {
+  text-align: justify;
+}
+
+#escritorioUsuarioTitulo {
+  text-align: center;
+}
+
+#escritoriousuarioEditarFormulario {
+  border: 1px solid black;
+  color: black;
+}
+
+#escritoriousuarioEditarFormulario span {
+  color: white;
+}
+
+#escritoriousuarioEditarFormulario .filaTabla {
+  display: table-row;
+}
+
+#escritoriousuarioEditarFormulario .filaTabla .celdaCampo, #escritoriousuarioEditarFormulario .filaTabla input {
+  display: table-cell;
+}
+
+#escritoriousuarioEditarFormulario .filaTabla .celdaCampo {
+  width: 120px;
+  
+}
+
+#escritoriousuarioEditarFormulario .filaTabla .descripcion {
+  vertical-align: top;
+}
+
+textarea {
+  resize: none;
+}
+
+/* GALERIA */
+/* Animacion del cubo */
+@keyframes animacionCubo {
+    from {
+      -webkit-transform: rotateX(0deg) rotateY(0);
+    }
+    
+    to {
+      -webkit-transform: rotateX(360deg) rotateY(360deg);
+    }
+}
+
+#main button {
+  width: auto;
+}
+
+#main div[id^="fotoImagen"] {
+  color: black;
+  text-align: center;
+  background-color: white;
+  padding: 10px;
+  width: 180px;
+  height: 180px;
+}
+
+#protectorPantalla {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 4;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+
+}
+
+.cuboContenedor {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  margin: 100px auto;
+  animation-name: animacionCubo;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+  transition-timing-function: cubic-bezier(0.6, 0.1, 0.15, 0.8);
+  /* Muy importante, permite que los hijos conserven el efecto */
+  -webkit-transform-style: preserve-3d;
+  -webkit-transform: rotateY(50deg);
+}
+
+.cuboContenedor div {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background-size: 300px 300px;
+  opacity: 0.9;
+}
+
+.cara01 {
+  -webkit-transform: translateZ(150px);
+  background-color: red;
+  border: 1px solid black;
+}
+
+.cara02 {
+  -webkit-transform: translateZ(-150px);
+  background-color: blue;
+  border: 1px solid black;
+}
+
+.cara03 {
+  -webkit-transform: rotateY(90deg) translateZ(150px);
   background-color: green;
+  border: 1px solid black;
+}
+
+.cara04 {
+  -webkit-transform: rotateY(270deg) translateZ(150px);
+  background-color: yellow;
+  border: 1px solid black;
+}
+
+.cara05 {
+  -webkit-transform: rotateX(270deg) translateZ(150px);
+  background-color: grey;
+  border: 1px solid black;
+}
+
+.cara06 {
+  -webkit-transform: rotateX(90deg) translateZ(150px);
+  background-color: pink;
+  border: 1px solid black;
+}
+
+/* Galeria Animada */
+.slider-holder {
+  width: 800px;
+  height: 400px;
+  background-color: yellow;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0px;
+  text-align: center;
+  overflow: hidden;
+}
+       
+.image-holder {
+    width: 2400px;
+    background-color: red;
+    height: 400px;
+    clear: both;
+    position: relative;
+
+    transition-property: left;
+    transition-duration: 4s;
+}
+
+.slider-image {
+  width: 800px;
+  height: 400px;
+  float: left;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+}
+
+#slider-image-1:target ~ .image-holder {
+  left: 0px;
+}
+
+#slider-image-2:target ~ .image-holder {
+  left: -800px;
+}
+
+#slider-image-3:target ~ .image-holder {
+  left: -1600px;
+}
+
+.button-holder {
+  position: relative;
+  top: -20px;
+}
+
+.slider-change {
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  border-radius: 10px;
+  background-color: brown;
 }

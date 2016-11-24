@@ -1,6 +1,7 @@
 <?php
 
 require_once 'ConexionDB.php';
+require_once 'Escritorio.php';
   
 class Usuario {
   private $idUsuario;
@@ -44,34 +45,55 @@ class Usuario {
     $conexion = ConexionDB::conectar();
     $insert = 'INSERT INTO usuario (idUsuario, nombre, clave, administrador) '
             . "VALUES ('$this->idUsuario', '$this->nombre', '$this->clave', $this->administrador)";
-
+    
+    // Inserta al nuevo usuario
     $conexion->exec($insert);
+    
+    // Crea su escritorio
+    Escritorio::generarEscritorioById($this->idUsuario);
   }
   
-  public function update($idUsuario, $nombre, $clave, $administrador) {
+  public function update($usuarioActualizado) {
     $conexion = ConexionDB::conectar();
-    $update = 'UPDATE usuario SET ';
     
-    if ($this->idUsuario != $idUsuario) {
-      $update .= 'idUsuario=' . $idUsuario;
+    // La variable $updateOriginal la utilizo para saber si es el primer valor que se ha modificado.
+    $updateOriginal = 'UPDATE usuario SET ';
+    $update = $updateOriginal;
+    
+    if ($this->idUsuario != $usuarioActualizado->idUsuario) {
+      $update .= "idUsuario = '$usuarioActualizado->idUsuario'";
     }
     
-    if ($this->nombre != $nombre) {
-      $update .= 'nombre=' . $nombre;
+    if ($this->nombre != $usuarioActualizado->nombre) {
+      if ($update != $updateOriginal) {
+        $update .= ", ";
+      }
+      
+      $update .= "nombre = '$usuarioActualizado->nombre'";
     }
     
-    if ($this->clave != $clave) {
-      $update .= 'clave=' . $clave;
+    if ($this->clave != $usuarioActualizado->clave) {
+      if ($update != $updateOriginal) {
+        $update .= ", ";
+      }
+      
+      $update .= "clave = '$usuarioActualizado->clave'";
     }
     
-    if ($this->administrador != $administrador) {
-      $update .= 'administrador=' . $administrador;
+    if ($this->administrador != $usuarioActualizado->administrador) {
+      if ($update != $updateOriginal) {
+        $update .= ", ";
+      }
+      
+      $update .= "administrador = $usuarioActualizado->administrador";
     }
     
-    $update .= 'WHERE `usuario`.`idUsuario` = ' . $this->idUsuario;
-
-    echo $update;
-    //$conexion->exec($update);
+    // Controla si ningun parametro se modifico
+    if ($update != 'UPDATE usuario SET ') {
+      $update .= " WHERE usuario.idUsuario = '$this->idUsuario'";
+    }
+    
+    $conexion->exec($update);
   }
   
   public static function deleteById($idUsuario) {
